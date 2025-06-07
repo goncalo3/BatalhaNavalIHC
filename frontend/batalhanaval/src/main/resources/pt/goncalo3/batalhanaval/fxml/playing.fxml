@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="pt.goncalo3.batalhanaval.BattleshipController"
+            styleClass="root-pane"
+            stylesheets="@../css/game2.css">
+
+    <!-- Top: Turn indicator and game status -->
+    <top>
+        <VBox styleClass="top-section">
+            <padding>
+                <Insets top="30" right="40" bottom="20" left="40"/>
+            </padding>
+
+            <!-- Turn indicator -->
+            <HBox styleClass="turn-indicator-container">
+                <ImageView fx:id="playerAvatar" styleClass="avatar"/>
+                <Label fx:id="turnIndicator"
+                       text=""
+                       styleClass="turn-indicator your-turn"/>
+                <Label text="" styleClass="vs-label"/>
+                <Label fx:id="enemyTurnIndicator"
+                       text=""
+                       styleClass="turn-indicator enemy-turn"/>
+                <ImageView fx:id="enemyAvatar" styleClass="avatar"/>
+            </HBox>
+
+            <!-- Game status message -->
+            <Label fx:id="statusMessage"
+                   text="Ready to battle! Click on enemy grid to attack."
+                   styleClass="status-message"/>
+        </VBox>
+    </top>
+
+    <!-- Center: Game boards -->
+    <center>
+        <HBox styleClass="boards-container">
+            <padding>
+                <Insets top="20" right="40" bottom="40" left="40"/>
+            </padding>
+
+            <!-- YOUR BOARD Section -->
+            <VBox fx:id="playerBoardSection" styleClass="board-section">
+                <!-- Board header with navigation -->
+                <HBox styleClass="board-header">
+                    <Label text="Your Board" styleClass="board-title"/>
+                </HBox>
+
+                <!-- Player board with coordinates -->
+                <VBox styleClass="grid-container">
+                    <!-- Column headers (1-10) -->
+                    <HBox alignment="CENTER_LEFT" spacing="0">
+                        <StackPane prefWidth="32" prefHeight="32" alignment="CENTER">
+                            <Label text=""/>
+                        </StackPane>
+                        <HBox styleClass="coordinate-header">
+                            <Label text="1" styleClass="coordinate-label"/>
+                            <Label text="2" styleClass="coordinate-label"/>
+                            <Label text="3" styleClass="coordinate-label"/>
+                            <Label text="4" styleClass="coordinate-label"/>
+                            <Label text="5" styleClass="coordinate-label"/>
+                            <Label text="6" styleClass="coordinate-label"/>
+                            <Label text="7" styleClass="coordinate-label"/>
+                            <Label text="8" styleClass="coordinate-label"/>
+                            <Label text="9" styleClass="coordinate-label"/>
+                            <Label text="10" styleClass="coordinate-label"/>
+                        </HBox>
+                    </HBox>
+
+                    <!-- Grid with row labels (A-J) -->
+                    <HBox alignment="CENTER" spacing="10">
+                        <!-- Row letters -->
+                        <VBox styleClass="row-coordinates">
+                            <Label text="A" styleClass="coordinate-label"/>
+                            <Label text="B" styleClass="coordinate-label"/>
+                            <Label text="C" styleClass="coordinate-label"/>
+                            <Label text="D" styleClass="coordinate-label"/>
+                            <Label text="E" styleClass="coordinate-label"/>
+                            <Label text="F" styleClass="coordinate-label"/>
+                            <Label text="G" styleClass="coordinate-label"/>
+                            <Label text="H" styleClass="coordinate-label"/>
+                            <Label text="I" styleClass="coordinate-label"/>
+                            <Label text="J" styleClass="coordinate-label"/>
+                        </VBox>
+
+                        <!-- Player grid -->
+                        <GridPane fx:id="playerGrid"
+                                  styleClass="board-grid,player-grid"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+
+            <!-- OPPONENT'S BOARD Section -->
+            <VBox fx:id="enemyBoardSection" styleClass="board-section">
+                <!-- Board header with navigation -->
+                <HBox styleClass="board-header">
+                    <Label text="Your Opponent's Board" styleClass="board-title"/>
+                </HBox>
+
+                <!-- Enemy board with coordinates -->
+                <VBox styleClass="grid-container">
+                    <!-- Column headers (1-10) -->
+                    <HBox alignment="CENTER_LEFT" spacing="0">
+                        <StackPane prefWidth="32" prefHeight="32" alignment="CENTER">
+                            <Label text=""/>
+                        </StackPane>
+                        <HBox styleClass="coordinate-header">
+                            <Label text="1" styleClass="coordinate-label"/>
+                            <Label text="2" styleClass="coordinate-label"/>
+                            <Label text="3" styleClass="coordinate-label"/>
+                            <Label text="4" styleClass="coordinate-label"/>
+                            <Label text="5" styleClass="coordinate-label"/>
+                            <Label text="6" styleClass="coordinate-label"/>
+                            <Label text="7" styleClass="coordinate-label"/>
+                            <Label text="8" styleClass="coordinate-label"/>
+                            <Label text="9" styleClass="coordinate-label"/>
+                            <Label text="10" styleClass="coordinate-label"/>
+                        </HBox>
+                    </HBox>
+
+                    <!-- Grid with row labels (A-J) -->
+                    <HBox alignment="CENTER" spacing="10">
+                        <!-- Row letters -->
+                        <VBox styleClass="row-coordinates">
+                            <Label text="A" styleClass="coordinate-label"/>
+                            <Label text="B" styleClass="coordinate-label"/>
+                            <Label text="C" styleClass="coordinate-label"/>
+                            <Label text="D" styleClass="coordinate-label"/>
+                            <Label text="E" styleClass="coordinate-label"/>
+                            <Label text="F" styleClass="coordinate-label"/>
+                            <Label text="G" styleClass="coordinate-label"/>
+                            <Label text="H" styleClass="coordinate-label"/>
+                            <Label text="I" styleClass="coordinate-label"/>
+                            <Label text="J" styleClass="coordinate-label"/>
+                        </VBox>
+
+                        <!-- Enemy grid -->
+                        <GridPane fx:id="enemyGrid"
+                                  styleClass="board-grid,enemy-grid"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </HBox>
+    </center>
+
+    <!-- Bottom: Footer -->
+    <bottom>
+        <HBox styleClass="bottom-bar">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            <Label text="" styleClass="footer-text"/>
+            <Label text="" styleClass="footer-text"/>
+        </HBox>
+    </bottom>
+</BorderPane>

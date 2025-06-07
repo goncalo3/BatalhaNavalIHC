@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="pt.goncalo3.batalhanaval.LoginController"
+           styleClass="root-pane"
+           alignment="CENTER"
+           stylesheets="@../css/auth-styles.css">
+
+    <VBox styleClass="login-card" spacing="32" alignment="CENTER">
+
+        <!-- Title Section -->
+        <VBox styleClass="title-section" alignment="CENTER">
+            <Label fx:id="titleLabel"
+                   text="Welcome back! 👋"
+                   styleClass="welcome-title"/>
+            <Label text="Log in to continue playing Battleship."
+                   styleClass="welcome-subtitle"/>
+        </VBox>
+
+        <!-- Form Section -->
+        <VBox styleClass="form-section" spacing="20" alignment="CENTER">
+
+            <!-- Username Field -->
+            <VBox styleClass="field-group" spacing="6">
+                <Label text="Username" styleClass="field-label"/>
+                <TextField fx:id="usernameField"
+                           styleClass="input-field"
+                           promptText="Enter your username"/>
+            </VBox>
+
+            <!-- Email Field (for registration mode) -->
+            <VBox fx:id="emailContainer"
+                  styleClass="field-group"
+                  spacing="6"
+                  visible="false"
+                  managed="false">
+                <Label text="Email" styleClass="field-label"/>
+                <TextField fx:id="emailField"
+                           styleClass="input-field"
+                           promptText="Enter your email"/>
+            </VBox>
+
+            <!-- Password Field -->
+            <VBox styleClass="field-group" spacing="6">
+                <Label text="Password" styleClass="field-label"/>
+                <PasswordField fx:id="passwordField"
+                               styleClass="input-field"
+                               promptText="Enter your password"/>
+            </VBox>
+
+            <!-- Error message -->
+            <Label fx:id="errorMessageLabel"
+                   styleClass="error-message"
+                   visible="false"
+                   managed="false"
+                   wrapText="true"/>
+
+            <!-- Submit Button -->
+            <Button fx:id="submitButton"
+                    text="Login"
+                    onAction="#onSubmitButtonClick"
+                    styleClass="login-button"/>
+
+        </VBox>
+
+        <!-- Bottom Links Section -->
+        <VBox spacing="16" alignment="CENTER">
+
+            <!-- Switch Mode Section -->
+            <VBox styleClass="switch-section" alignment="CENTER">
+                <Label fx:id="switchModeLabel"
+                       text="Don't have an account?"
+                       styleClass="signup-text"/>
+                <Hyperlink fx:id="switchModeLink"
+                           text="Sign up"
+                           onAction="#onSwitchModeClick"
+                           styleClass="signup-link"/>
+            </VBox>
+
+            <!-- Back to Home Link -->
+            <Hyperlink text="← Back to Home"
+                       onAction="#onBackToHomeClick"
+                       styleClass="back-home-link"/>
+        </VBox>
+
+    </VBox>
+</StackPane>

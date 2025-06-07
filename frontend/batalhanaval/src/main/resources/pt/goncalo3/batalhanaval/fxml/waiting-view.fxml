@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="pt.goncalo3.batalhanaval.WaitingController"
+            styleClass="root-pane"
+            stylesheets="@../css/auth-styles.css">
+
+    <!-- Center: Waiting content -->
+    <center>
+        <VBox alignment="CENTER" spacing="30" styleClass="waiting-container">
+            <!-- Title -->
+            <Label text="FINDING OPPONENT" styleClass="waiting-title">
+                <font>
+                    <Font name="System Bold" size="24.0"/>
+                </font>
+            </Label>
+            
+            <!-- Spinning indicator -->
+            <ProgressIndicator fx:id="loadingIndicator" 
+                             prefHeight="80.0" 
+                             prefWidth="80.0"
+                             styleClass="waiting-spinner"/>
+            
+            <!-- Status text -->
+            <VBox alignment="CENTER" spacing="10">
+                <Label fx:id="statusLabel" text="Connecting to game server..." styleClass="waiting-status">
+                    <font>
+                        <Font name="System" size="16.0"/>
+                    </font>
+                </Label>
+                
+                <!-- Queue info (visible when connected) -->
+                <Label fx:id="queueInfoLabel" text="" styleClass="queue-info" visible="false">
+                    <font>
+                        <Font name="System" size="14.0"/>
+                    </font>
+                </Label>
+            </VBox>
+            
+            <!-- Cancel button -->
+            <Button fx:id="cancelButton"
+                    text="CANCEL"
+                    onAction="#onCancelClick"
+                    styleClass="secondary-button"
+                    maxWidth="150"
+                    minHeight="50"/>
+        </VBox>
+    </center>
+
+    <!-- Bottom: Game info -->
+    <bottom>
+        <VBox alignment="CENTER" spacing="10" styleClass="bottom-info">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label text="You will be matched with another player" styleClass="info-text"/>
+            <Label text="Game will start automatically when match is found" styleClass="info-text"/>
+        </VBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,358 @@
+/* ===== BATTLESHIP GAME STYLES - Harmonized for Ship Placement View ===== */
+
+/* Board container */
+.board-container {
+    -fx-background-color: #FAF0CA;
+    -fx-background-radius: 18px;
+    -fx-padding: 24px;
+    -fx-effect: dropshadow(gaussian, rgba(13,59,102,0.10), 12, 0, 0, 4);
+    -fx-border-color: #0D3B66;
+    -fx-border-width: 2px;
+    -fx-border-radius: 18px;
+}
+
+/* Grid styling */
+.board-grid {
+    -fx-background-color: #FAF0CA;
+    -fx-background-radius: 12px;
+    -fx-padding: 12px;
+    -fx-hgap: 2px;
+    -fx-vgap: 2px;
+    -fx-border-color: #0D3B66;
+    -fx-border-width: 1.5px;
+}
+
+/* Grid cells */
+.grid-cell {
+    -fx-fill: #ffffff;
+    -fx-stroke: #0D3B66;
+    -fx-stroke-width: 1.2px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(244,211,94,0.10), 2, 0, 0, 1);
+    -fx-cursor: hand;
+    -fx-transition: -fx-fill 0.2s, -fx-scale-x 0.2s, -fx-scale-y 0.2s;
+}
+
+.grid-cell.ship {
+    -fx-fill: #F4D35E;
+    -fx-stroke: #0D3B66;
+}
+
+.grid-cell.hit {
+    -fx-fill: #EE964B;
+}
+
+.grid-cell.miss, .grid-cell.destroyed {
+    -fx-fill: #F95738;
+    -fx-stroke: #0D3B66;
+}
+
+.grid-cell:hover {
+    -fx-fill: #F4D35E;
+    -fx-scale-x: 1.12;
+    -fx-scale-y: 1.12;
+    -fx-effect: dropshadow(gaussian, #F4D35E, 6, 0.2, 0, 0);
+}
+
+/* Coordinate labels */
+.coordinate-label {
+    -fx-text-fill: #0D3B66;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-min-width: 32px;
+    -fx-min-height: 32px;
+    -fx-alignment: center;
+}
+
+.coordinate-label-spacer {
+    -fx-min-width: 32px;
+    -fx-min-height: 32px;
+}
+
+/* Instructions panel */
+.instructions-panel {
+    -fx-background-color: #FAF0CA;
+    -fx-background-radius: 18px;
+    -fx-padding: 24px;
+    -fx-effect: dropshadow(gaussian, rgba(13,59,102,0.10), 12, 0, 0, 4);
+    -fx-border-color: #0D3B66;
+    -fx-border-width: 2px;
+    -fx-border-radius: 18px;
+}
+
+.instructions-header {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0D3B66;
+    -fx-alignment: center;
+    -fx-padding: 0 0 4px 0;
+}
+
+.instructions-header::after {
+    content: '';
+    display: block;
+    -fx-background-color: #F4D35E;
+    -fx-pref-height: 4px;
+    -fx-pref-width: 60px;
+    -fx-background-radius: 2px;
+    -fx-alignment: center;
+    margin: 0 auto;
+}
+
+.instruction-number {
+    -fx-background-color: #0D3B66;
+    -fx-background-radius: 50%;
+    -fx-text-fill: #FAF0CA;
+    -fx-font-weight: 600;
+    -fx-font-size: 14px;
+    -fx-min-width: 28px;
+    -fx-min-height: 28px;
+    -fx-alignment: center;
+}
+
+.instruction-text {
+    -fx-text-fill: #0D3B66;
+    -fx-font-size: 14px;
+    -fx-line-spacing: 2px;
+    -fx-opacity: 0.8;
+}
+
+/* Tip section */
+.tip-section {
+    -fx-background-color: #F4D35E;
+    -fx-background-radius: 12px;
+    -fx-padding: 16px;
+    -fx-border-color: #EE964B;
+    -fx-border-width: 1px;
+    -fx-border-radius: 12px;
+}
+
+.tip-header {
+    -fx-font-weight: bold;
+    -fx-text-fill: #0D3B66;
+    -fx-font-size: 14px;
+}
+
+.tip-text {
+    -fx-text-fill: #0D3B66;
+    -fx-font-size: 13px;
+    -fx-opacity: 0.8;
+}
+
+/* Cell state examples */
+.cell-example {
+    -fx-min-width: 24px;
+    -fx-min-height: 24px;
+    -fx-border-color: #0D3B66;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+}
+
+.cell-empty {
+    -fx-background-color: #ffffff;
+}
+
+.cell-miss {
+    -fx-background-color: #F4D35E;
+}
+
+.cell-hit {
+    -fx-background-color: #F95738;
+}
+
+.ship-horizontal, .ship-vertical {
+    -fx-background-color: #0D3B66;
+}
+
+.ship-end {
+    -fx-background-color: #EE964B;
+}
+
+/* ORIENTATION TOGGLE */
+.orientation-toggle {
+    -fx-background-color: #FAF0CA;
+    -fx-text-fill: #0D3B66;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 6px 18px;
+    -fx-background-radius: 18px;
+    -fx-border-color: #0D3B66;
+    -fx-border-width: 2px;
+    -fx-border-radius: 18px;
+    -fx-cursor: hand;
+    -fx-transition: -fx-background-color 0.2s, -fx-text-fill 0.2s;
+    -fx-pref-width: -1;
+    -fx-min-width: 0;
+    -fx-max-width: infinity;
+}
+
+.orientation-toggle:selected {
+    -fx-background-color: #F4D35E;
+    -fx-text-fill: #0D3B66;
+    -fx-border-color: #F4D35E;
+}
+
+.orientation-toggle:disabled {
+    -fx-opacity: 0.6;
+}
+
+/* Ship info label */
+.ship-info-label {
+    -fx-text-fill: #0D3B66;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-max-width: infinity;
+    -fx-min-width: 0;
+    -fx-pref-width: -1;
+    -fx-wrap-text: true;
+    -fx-text-overrun: ellipsis;
+    -fx-padding: 8 12;
+}
+
+/* Control labels */
+.control-label {
+    -fx-text-fill: #0D3B66;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+/* Section headers */
+.section-header {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0D3B66;
+    -fx-alignment: center;
+    -fx-padding: 0 0 4px 0;
+}
+
+.section-header::after {
+    content: '';
+    display: block;
+    -fx-background-color: #F4D35E;
+    -fx-pref-height: 4px;
+    -fx-pref-width: 60px;
+    -fx-background-radius: 2px;
+    -fx-alignment: center;
+    margin: 0 auto;
+}
+
+/* Ships container */
+.ships-container {
+    -fx-background-color: #FAF0CA;
+    -fx-background-radius: 16px;
+    -fx-padding: 20px;
+    -fx-border-color: #0D3B66;
+    -fx-border-width: 2px;
+    -fx-border-radius: 16px;
+}
+
+/* Ship boxes */
+.ship-box {
+    -fx-background-color: #0D3B66;
+    -fx-background-radius: 12px;
+    -fx-padding: 16px 12px;
+    -fx-alignment: center;
+    -fx-min-width: 90px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(13,59,102,0.10), 8, 0, 0, 4);
+    -fx-border-width: 2px;
+    -fx-border-radius: 12px;
+    -fx-border-color: transparent;
+    -fx-transition: -fx-background-color 0.2s;
+}
+
+.ship-box:hover {
+    -fx-background-color: #EE964B;
+    -fx-effect: dropshadow(gaussian, rgba(238,150,75,0.20), 12, 0, 0, 6);
+}
+
+.ship-box.placed {
+    -fx-opacity: 0.7;
+    -fx-border-color: #F4D35E;
+    -fx-background-color: #F4D35E;
+}
+
+/* Ship text styling */
+.ship-name {
+    -fx-text-fill: #FAF0CA;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+.ship-length {
+    -fx-text-fill: #FAF0CA;
+    -fx-font-size: 11px;
+    -fx-font-weight: 500;
+    -fx-opacity: 0.9;
+}
+
+/* Ship type colors using palette */
+.ship-carrier {
+    -fx-background-color: #0D3B66;
+}
+
+.ship-battleship {
+    -fx-background-color: #EE964B;
+}
+
+.ship-cruiser {
+    -fx-background-color: #F4D35E;
+}
+
+.ship-submarine {
+    -fx-background-color: #F95738;
+}
+
+.ship-destroyer {
+    -fx-background-color: #0D3B66;
+}
+
+/* Error label */
+.error-label {
+    -fx-text-fill: #F95738;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Buttons */
+.primary-button {
+    -fx-background-color: #0D3B66;
+    -fx-text-fill: #FAF0CA;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-padding: 10px 30px;
+    -fx-cursor: hand;
+    -fx-border-color: #0D3B66;
+    -fx-border-width: 2px;
+    -fx-transition: -fx-background-color 0.2s;
+}
+
+.primary-button:hover {
+    -fx-background-color: #F4D35E;
+    -fx-text-fill: #0D3B66;
+    -fx-border-color: #F4D35E;
+}
+
+.secondary-button {
+    -fx-background-color: #FAF0CA;
+    -fx-text-fill: #0D3B66;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-padding: 10px 30px;
+    -fx-cursor: hand;
+    -fx-border-color: #0D3B66;
+    -fx-border-width: 2px;
+    -fx-transition: -fx-background-color 0.2s;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #EE964B;
+    -fx-text-fill: #FAF0CA;
+    -fx-border-color: #EE964B;
+}

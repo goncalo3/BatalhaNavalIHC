@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.StackPane?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="pt.goncalo3.batalhanaval.ShipPlacementController"
+            styleClass="root-pane"
+            stylesheets="@../css/game-styles.css">
+
+    <!-- Main content container with grid and instructions side by side -->
+    <center>
+        <HBox spacing="20" alignment="CENTER">
+            <!-- Left side: Grid with coordinate labels -->
+            <VBox alignment="CENTER" spacing="10" styleClass="board-container">
+                <!-- Column headers (1-10) -->
+                <HBox alignment="CENTER_LEFT" spacing="0">
+                    <StackPane styleClass="coordinate-label-spacer">
+                        <Label text="" />
+                    </StackPane>
+                    <HBox spacing="0" alignment="CENTER">
+                        <Label text="1" styleClass="coordinate-label" />
+                        <Label text="2" styleClass="coordinate-label" />
+                        <Label text="3" styleClass="coordinate-label" />
+                        <Label text="4" styleClass="coordinate-label" />
+                        <Label text="5" styleClass="coordinate-label" />
+                        <Label text="6" styleClass="coordinate-label" />
+                        <Label text="7" styleClass="coordinate-label" />
+                        <Label text="8" styleClass="coordinate-label" />
+                        <Label text="9" styleClass="coordinate-label" />
+                        <Label text="10" styleClass="coordinate-label" />
+                    </HBox>
+                </HBox>
+                
+                <!-- Grid with row labels (A-J) -->
+                <HBox alignment="CENTER" spacing="10">
+                    <!-- Row labels -->
+                    <VBox spacing="0" alignment="CENTER">
+                        <Label text="A" styleClass="coordinate-label" />
+                        <Label text="B" styleClass="coordinate-label" />
+                        <Label text="C" styleClass="coordinate-label" />
+                        <Label text="D" styleClass="coordinate-label" />
+                        <Label text="E" styleClass="coordinate-label" />
+                        <Label text="F" styleClass="coordinate-label" />
+                        <Label text="G" styleClass="coordinate-label" />
+                        <Label text="H" styleClass="coordinate-label" />
+                        <Label text="I" styleClass="coordinate-label" />
+                        <Label text="J" styleClass="coordinate-label" />
+                    </VBox>
+                    
+                    <!-- The actual grid -->
+                    <GridPane fx:id="placementGrid"
+                              styleClass="board-grid"
+                              hgap="2" vgap="2">
+                        <padding>
+                            <Insets top="0" right="0" bottom="0" left="0"/>
+                        </padding>
+                    </GridPane>
+                </HBox>
+            </VBox>
+            
+            <!-- Right side: Instructions and controls -->
+            <VBox alignment="CENTER" spacing="20" styleClass="instructions-panel" maxWidth="250">
+                <Label text="Place your ships!" styleClass="instructions-header" />
+                
+                <!-- Instruction 1 -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="1" styleClass="instruction-number" />
+                    <Label text="Place all 5 ships on your board." 
+                           styleClass="instruction-text" wrapText="true" />
+                </HBox>
+                
+                <!-- Instruction 2 -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="2" styleClass="instruction-number" />
+                    <Label text="Click to place the ship on the grid." 
+                           styleClass="instruction-text" wrapText="true" />
+                </HBox>
+                
+                <!-- Tip section -->
+                <VBox spacing="10" styleClass="tip-section">
+                    <Label text="Tip" styleClass="tip-header" />
+                    <Label text="Red means the ship can't placed there!"
+                           styleClass="tip-text" wrapText="true" />
+                    <HBox spacing="10" alignment="CENTER">
+                        <StackPane styleClass="cell-example, cell-empty" />
+                        <StackPane styleClass="cell-example, cell-miss" />
+                        <StackPane styleClass="cell-example, cell-hit" />
+                    </HBox>
+                    <HBox spacing="10" alignment="CENTER">
+                        <StackPane styleClass="cell-example, ship-horizontal" />
+                        <StackPane styleClass="cell-example, ship-vertical" />
+                        <StackPane styleClass="cell-example, ship-end" />
+                    </HBox>
+                </VBox>
+                
+                <!-- Orientation toggle -->
+                <HBox alignment="CENTER" spacing="0">
+                    <ToggleButton fx:id="orientationToggle" text="HORIZONTAL" 
+                                  onAction="#toggleOrientation" styleClass="orientation-toggle"/>
+                </HBox>
+                
+                <!-- Current ship indicator -->
+                <Label fx:id="currentShipLabel" text="Placing: Carrier (5)" styleClass="ship-info-label"/>
+            </VBox>
+        </HBox>
+    </center>
+
+    <!-- Bottom: Ship selection and start button -->
+    <bottom>
+        <VBox alignment="CENTER" spacing="15">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            
+            <!-- Ship selection with visual indicators -->
+            <VBox spacing="10">
+                <Label text="Ships Cheatsheet" styleClass="section-header" />
+                <HBox alignment="CENTER" spacing="10" styleClass="ships-container">
+                    <VBox fx:id="carrierBox" styleClass="ship-box, ship-carrier" onMouseClicked="#selectShip">
+                        <Label text="Aircraft Carrier" styleClass="ship-name"/>
+                        <Label text="5 cells" styleClass="ship-length"/>
+                    </VBox>
+                    <VBox fx:id="battleshipBox" styleClass="ship-box, ship-battleship" onMouseClicked="#selectShip">
+                        <Label text="Battleship" styleClass="ship-name"/>
+                        <Label text="4 cells" styleClass="ship-length"/>
+                    </VBox>
+                    <VBox fx:id="cruiserBox" styleClass="ship-box, ship-cruiser" onMouseClicked="#selectShip">
+                        <Label text="Cruiser" styleClass="ship-name"/>
+                        <Label text="3 cells" styleClass="ship-length"/>
+                    </VBox>
+                    <VBox fx:id="submarineBox" styleClass="ship-box, ship-submarine" onMouseClicked="#selectShip">
+                        <Label text="Submarine" styleClass="ship-name"/>
+                        <Label text="3 cells" styleClass="ship-length"/>
+                    </VBox>
+                    <VBox fx:id="destroyerBox" styleClass="ship-box, ship-destroyer" onMouseClicked="#selectShip">
+                        <Label text="Destroyer" styleClass="ship-name"/>
+                        <Label text="2 cells" styleClass="ship-length"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+            
+            <!-- Opponent Disconnected Message and Button -->
+            <Label fx:id="opponentDisconnectedLabel" text="" styleClass="error-label" visible="false" managed="false"/>
+            <Button fx:id="backToHomeButton" text="Back to Homepage" onAction="#goBackToHome" styleClass="secondary-button" 
+                    visible="false" managed="false" />
+
+            <!-- Start game and reset buttons -->
+            <HBox alignment="CENTER" spacing="20" fx:id="gameControlsContainer">
+                <Button fx:id="resetButton" text="RESET" 
+                        onAction="#onResetClick" styleClass="secondary-button" />
+                <Button fx:id="startGameButton" text="START GAME" 
+                        onAction="#onStartGameClick" styleClass="primary-button" 
+                        disable="true" />
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>

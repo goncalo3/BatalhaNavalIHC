@@ -1,0 +1,148 @@
+/* Root styling */
+.home-root {
+    -fx-background-color: linear-gradient(135deg, #0D3B66 0%, #FAF0CA 100%);
+    -fx-font-family: "System";
+}
+
+/* Main container */
+.home-container {
+    -fx-background-color: #FAF0CA;
+    -fx-background-radius: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0, 0, 5);
+    -fx-max-width: 500;
+    -fx-min-height: 600;
+}
+
+/* Title section */
+.title-section {
+    -fx-padding: 0 0 20 0;
+}
+
+.game-title {
+    -fx-text-fill: #0D3B66;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 3px;
+}
+
+.welcome-text {
+    -fx-text-fill: #0D3B66;
+    -fx-opacity: 0.7;
+    -fx-font-style: italic;
+}
+
+/* Button section */
+.button-section {
+    -fx-padding: 20 0;
+}
+
+/* Base button styling */
+.home-button {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 8, 0, 0, 2);
+    -fx-text-fill: white;
+    -fx-letter-spacing: 1px;
+}
+
+/* Primary button (LOGIN) */
+.primary-button {
+    -fx-background-color: #0D3B66;
+    -fx-border-color: #0D3B66;
+    -fx-border-width: 2;
+}
+
+.primary-button:hover {
+    -fx-background-color: #0a2d4f;
+    -fx-border-color: #0a2d4f;
+    -fx-effect: dropshadow(gaussian, rgba(13, 59, 102, 0.3), 12, 0, 0, 3);
+    -fx-scale-y: 1.02;
+    -fx-scale-x: 1.02;
+}
+
+.primary-button:pressed {
+    -fx-background-color: #081f38;
+    -fx-border-color: #081f38;
+    -fx-effect: dropshadow(gaussian, rgba(13, 59, 102, 0.4), 6, 0, 0, 1);
+}
+
+/* Secondary button (REGISTER, LEADERBOARD) */
+.secondary-button {
+    -fx-background-color: #F4D35E;
+    -fx-text-fill: #0D3B66;
+    -fx-border-color: #EE964B;
+    -fx-border-width: 2;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #f2cc47;
+    -fx-border-color: #ec8b34;
+    -fx-effect: dropshadow(gaussian, rgba(244, 211, 94, 0.4), 10, 0, 0, 2);
+    -fx-scale-y: 1.02;
+    -fx-scale-x: 1.02;
+}
+
+.secondary-button:pressed {
+    -fx-background-color: #f0c530;
+    -fx-border-color: #ea801d;
+    -fx-effect: dropshadow(gaussian, rgba(244, 211, 94, 0.5), 5, 0, 0, 1);
+}
+
+/* Play button (special styling) */
+.play-button {
+    -fx-background-color: #EE964B;
+    -fx-text-fill: white;
+    -fx-border-color: #F95738;
+    -fx-border-width: 2;
+}
+
+.play-button:hover {
+    -fx-background-color: #ec8b34;
+    -fx-border-color: #f74a21;
+    -fx-effect: dropshadow(gaussian, rgba(238, 150, 75, 0.4), 10, 0, 0, 2);
+    -fx-scale-y: 1.02;
+    -fx-scale-x: 1.02;
+}
+
+.play-button:pressed {
+    -fx-background-color: #ea801d;
+    -fx-border-color: #f53d0a;
+}
+
+/* Logout button */
+.logout-button {
+    -fx-background-color: #F95738;
+    -fx-text-fill: white;
+    -fx-border-color: #F95738;
+    -fx-border-width: 2;
+}
+
+.logout-button:hover {
+    -fx-background-color: #f74a21;
+    -fx-border-color: #f74a21;
+    -fx-effect: dropshadow(gaussian, rgba(249, 87, 56, 0.4), 10, 0, 0, 2);
+    -fx-scale-y: 1.02;
+    -fx-scale-x: 1.02;
+}
+
+.logout-button:pressed {
+    -fx-background-color: #f53d0a;
+    -fx-border-color: #f53d0a;
+}
+
+/* Footer section */
+.footer-section {
+    -fx-padding: 20 0 0 0;
+}
+
+.footer-text {
+    -fx-text-fill: #0D3B66;
+    -fx-opacity: 0.6;
+}
+
+/* Button animations */
+.home-button {
+    -fx-transition: all 0.2s ease;
+}
